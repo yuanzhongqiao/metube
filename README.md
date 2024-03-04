@@ -1,165 +1,260 @@
-# MeTube
-
-![Build Status](https://github.com/alexta69/metube/actions/workflows/main.yml/badge.svg)
-![Docker Pulls](https://img.shields.io/docker/pulls/alexta69/metube.svg)
-
-Web GUI for youtube-dl (using the [yt-dlp](https://github.com/yt-dlp/yt-dlp) fork) with playlist support. Allows you to download videos from YouTube and [dozens of other sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
-
-![screenshot1](https://github.com/alexta69/metube/raw/master/screenshot.gif)
-
-## Run using Docker
-
-```bash
-docker run -d -p 8081:8081 -v /path/to/downloads:/downloads ghcr.io/alexta69/metube
-```
-
-## Run using docker-compose
-
-```yaml
-version: "3"
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">米管</font></font></h1><a id="user-content-metube" class="anchor-element" aria-label="永久链接： MeTube" href="#metube"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexta69/metube/actions/workflows/main.yml/badge.svg"><img src="https://github.com/alexta69/metube/actions/workflows/main.yml/badge.svg" alt="构建状态" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6708f289d99a1b880e35d3f4050b19fb27031c6adc1dab32e625809a32191670/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f616c6578746136392f6d65747562652e737667"><img src="https://camo.githubusercontent.com/6708f289d99a1b880e35d3f4050b19fb27031c6adc1dab32e625809a32191670/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f616c6578746136392f6d65747562652e737667" alt="Docker 拉取" data-canonical-src="https://img.shields.io/docker/pulls/alexta69/metube.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">youtube-dl 的 Web GUI（使用</font></font><a href="https://github.com/yt-dlp/yt-dlp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">yt-dlp</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分支），支持播放列表。</font></font><a href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">允许您从 YouTube 和数十个其他网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载视频</font><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer" href="https://github.com/alexta69/metube/raw/master/screenshot.gif" data-target="animated-image.originalLink"><img src="https://github.com/alexta69/metube/raw/master/screenshot.gif" alt="截图1" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://github.com/alexta69/metube/raw/master/screenshot.gif" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="screenshot1" class="AnimatedImagePlayer-animatedImage" src="https://github.com/alexta69/metube/raw/master/screenshot.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="814" height="514"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="Play screenshot1" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="Play screenshot1">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="Open screenshot1 in new window" class="AnimatedImagePlayer-button" href="https://github.com/alexta69/metube/raw/master/screenshot.gif" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Docker 运行</font></font></h2><a id="user-content-run-using-docker" class="anchor-element" aria-label="永久链接：使用 Docker 运行" href="#run-using-docker"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>docker run -d -p 8081:8081 -v /path/to/downloads:/downloads ghcr.io/alexta69/metube</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="docker run -d -p 8081:8081 -v /path/to/downloads:/downloads ghcr.io/alexta69/metube" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 docker-compose 运行</font></font></h2><a id="user-content-run-using-docker-compose" class="anchor-element" aria-label="永久链接：使用 docker-compose 运行" href="#run-using-docker-compose"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-ent">version</span>: <span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>
+<span class="pl-ent">services</span>:
+  <span class="pl-ent">metube</span>:
+    <span class="pl-ent">image</span>: <span class="pl-s">ghcr.io/alexta69/metube</span>
+    <span class="pl-ent">container_name</span>: <span class="pl-s">metube</span>
+    <span class="pl-ent">restart</span>: <span class="pl-s">unless-stopped</span>
+    <span class="pl-ent">ports</span>:
+      - <span class="pl-s"><span class="pl-pds">"</span>8081:8081<span class="pl-pds">"</span></span>
+    <span class="pl-ent">volumes</span>:
+      - <span class="pl-s">/path/to/downloads:/downloads</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="version: &quot;3&quot;
 services:
   metube:
     image: ghcr.io/alexta69/metube
     container_name: metube
     restart: unless-stopped
     ports:
-      - "8081:8081"
+      - &quot;8081:8081&quot;
     volumes:
-      - /path/to/downloads:/downloads
-```
-
-## Configuration via environment variables
-
-Certain values can be set via environment variables, using the `-e` parameter on the docker command line, or the `environment:` section in docker-compose.
-
-* __UID__: user under which MeTube will run. Defaults to `1000`.
-* __GID__: group under which MeTube will run. Defaults to `1000`.
-* __UMASK__: umask value used by MeTube. Defaults to `022`.
-* __DEFAULT_THEME__: default theme to use for the ui, can be set to `light`, `dark` or `auto`. Defaults to `auto`.
-* __DOWNLOAD_DIR__: path to where the downloads will be saved. Defaults to `/downloads` in the docker image, and `.` otherwise.
-* __AUDIO_DOWNLOAD_DIR__: path to where audio-only downloads will be saved, if you wish to separate them from the video downloads. Defaults to the value of `DOWNLOAD_DIR`.
-* __DOWNLOAD_DIRS_INDEXABLE__: if `true`, the download dirs (__DOWNLOAD_DIR__ and __AUDIO_DOWNLOAD_DIR__) are indexable on the webserver. Defaults to `false`.
-* __CUSTOM_DIRS__: whether to enable downloading videos into custom directories within the __DOWNLOAD_DIR__ (or __AUDIO_DOWNLOAD_DIR__). When enabled, a drop-down appears next to the Add button to specify the download directory. Defaults to `true`.
-* __CREATE_CUSTOM_DIRS__: whether to support automatically creating directories within the __DOWNLOAD_DIR__ (or __AUDIO_DOWNLOAD_DIR__) if they do not exist. When enabled, the download directory selector becomes supports free-text input, and the specified directory will be created recursively. Defaults to `true`.
-* __STATE_DIR__: path to where the queue persistence files will be saved. Defaults to `/downloads/.metube` in the docker image, and `.` otherwise.
-* __TEMP_DIR__: path where intermediary download files will be saved. Defaults to `/downloads` in the docker image, and `.` otherwise.
-  * Set this to an SSD or RAM filesystem (e.g., `tmpfs`) for better performance
-  * __Note__: Using a RAM filesystem may prevent downloads from being resumed
-* __DELETE_FILE_ON_TRASHCAN__: if `true`, downloaded files are deleted on the server, when they are trashed from the "Completed" section of the UI. Defaults to `false`.
-* __URL_PREFIX__: base path for the web server (for use when hosting behind a reverse proxy). Defaults to `/`.
-* __OUTPUT_TEMPLATE__: the template for the filenames of the downloaded videos, formatted according to [this spec](https://github.com/yt-dlp/yt-dlp/blob/master/README.md#output-template). Defaults to `%(title)s.%(ext)s`.
-* __OUTPUT_TEMPLATE_CHAPTER__: the template for the filenames of the downloaded videos, when split into chapters via postprocessors. Defaults to `%(title)s - %(section_number)s %(section_title)s.%(ext)s`.
-* __YTDL_OPTIONS__: Additional options to pass to youtube-dl, in JSON format. [See available options here](https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/YoutubeDL.py#L183). They roughly correspond to command-line options, though some do not have exact equivalents here, for example `--recode-video` has to be specified via `postprocessors`. Also note that dashes are replaced with underscores.
-* __YTDL_OPTIONS_FILE__: A path to a JSON file that will be loaded and used for populating `YTDL_OPTIONS` above. Please note that if both `YTDL_OPTIONS_FILE` and `YTDL_OPTIONS` are specified, the options in `YTDL_OPTIONS` take precedence.
-
-The following example value for `YTDL_OPTIONS` embeds English subtitles and chapter markers (for videos that have them), and also changes the permissions on the downloaded video and sets the file modification timestamp to the date of when it was downloaded:
-
-```yaml
-    environment:
-      - 'YTDL_OPTIONS={"writesubtitles":true,"subtitleslangs":["en","-live_chat"],"updatetime":false,"postprocessors":[{"key":"Exec","exec_cmd":"chmod 0664","when":"after_move"},{"key":"FFmpegEmbedSubtitle","already_have_subtitle":false},{"key":"FFmpegMetadata","add_chapters":true}]}'
-```
-
-The following example value for `OUTPUT_TEMPLATE` sets:
-- playlist name and author, if present
-- playlist number and count, if present (zero-padded, if needed)
-- video author, title and release date in YYYY-MM-DD format, falling back to *UNKNOWN_...* if missing
-- sanitises everything for valid UNIX filename
-
-```yaml
-    environment:
-      - 'OUTPUT_TEMPLATE=%(playlist_title&Playlist |)S%(playlist_title|)S%(playlist_uploader& by |)S%(playlist_uploader|)S%(playlist_autonumber& - |)S%(playlist_autonumber|)S%(playlist_count& of |)S%(playlist_count|)S%(playlist_autonumber& - |)S%(uploader,creator|UNKNOWN_AUTHOR)S - %(title|UNKNOWN_TITLE)S - %(release_date>%Y-%m-%d,upload_date>%Y-%m-%d|UNKNOWN_DATE)S.%(ext)s'
-```
-
-## Using browser cookies
-
-In case you need to use your browser's cookies with MeTube, for example to download restricted or private videos:
-
-* Add the following to your docker-compose.yml:
-
-```yaml
-    volumes:
+      - /path/to/downloads:/downloads" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过环境变量进行配置</font></font></h2><a id="user-content-configuration-via-environment-variables" class="anchor-element" aria-label="永久链接：通过环境变量进行配置" href="#configuration-via-environment-variables"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"></font><code>-e</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以使用docker 命令行上的参数或</font></font><code>environment:</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">docker-compose 中的部分</font><font style="vertical-align: inherit;">通过环境变量设置某些值。</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UID</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：MeTube 将在其下运行的用户。</font><font style="vertical-align: inherit;">默认为</font></font><code>1000</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GID</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：MeTube 将在其下运行的组。</font><font style="vertical-align: inherit;">默认为</font></font><code>1000</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UMASK</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：MeTube 使用的 umask 值。</font><font style="vertical-align: inherit;">默认为</font></font><code>022</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DEFAULT_THEME</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：用于 ui 的默认主题，可以设置为</font></font><code>light</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><code>dark</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code>auto</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">默认为</font></font><code>auto</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：保存下载内容的路径。</font><font style="vertical-align: inherit;">默认</font></font><code>/downloads</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 docker 镜像中，</font></font><code>.</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">否则。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AUDIO_DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：如果您希望将纯音频下载与视频下载分开，则保存纯音频下载的路径。</font><font style="vertical-align: inherit;">默认为 的值</font></font><code>DOWNLOAD_DIR</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DOWNLOAD_DIRS_INDEXABLE</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：如果</font></font><code>true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则下载目录（</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AUDIO_DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）在网络服务器上可索引。</font><font style="vertical-align: inherit;">默认为</font></font><code>false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CUSTOM_DIRS</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：是否允许将视频下载到</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（或</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AUDIO_DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）内的自定义目录。</font><font style="vertical-align: inherit;">启用后，“添加”按钮旁边会出现一个下拉列表以指定下载目录。</font><font style="vertical-align: inherit;">默认为</font></font><code>true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CREATE_CUSTOM_DIRS ：如果</font></font></strong><font style="vertical-align: inherit;"></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（或</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AUDIO_DOWNLOAD_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）不存在，</font><font style="vertical-align: inherit;">是否支持自动创建目录。</font><font style="vertical-align: inherit;">启用后，下载目录选择器将支持自由文本输入，并且将递归创建指定目录。</font><font style="vertical-align: inherit;">默认为</font></font><code>true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">STATE_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：保存队列持久性文件的路径。</font><font style="vertical-align: inherit;">默认</font></font><code>/downloads/.metube</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 docker 镜像中，</font></font><code>.</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">否则。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TEMP_DIR</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：保存中间下载文件的路径。</font><font style="vertical-align: inherit;">默认</font></font><code>/downloads</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 docker 镜像中，</font></font><code>.</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">否则。
+</font></font><ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将其设置为 SSD 或 RAM 文件系统（例如</font></font><code>tmpfs</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）以获得更好的性能</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：使用 RAM 文件系统可能会阻止下载恢复</font></font></li>
+</ul>
+</li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DELETE_FILE_ON_TRASHCAN</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：如果为</font></font><code>true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则当下载的文件从 UI 的“已完成”部分删除时，它们会在服务器上删除。</font><font style="vertical-align: inherit;">默认为</font></font><code>false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">URL_PREFIX</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：Web 服务器的基本路径（在反向代理后面托管时使用）。</font><font style="vertical-align: inherit;">默认为</font></font><code>/</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OUTPUT_TEMPLATE</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：下载视频的文件名模板，根据</font></font><a href="https://github.com/yt-dlp/yt-dlp/blob/master/README.md#output-template"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此规范</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进行格式化。</font><font style="vertical-align: inherit;">默认为</font></font><code>%(title)s.%(ext)s</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OUTPUT_TEMPLATE_CHAPTER</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：下载视频的文件名模板，当通过后处理器分成章节时。</font><font style="vertical-align: inherit;">默认为</font></font><code>%(title)s - %(section_number)s %(section_title)s.%(ext)s</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">YTDL_OPTIONS</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：传递给 youtube-dl 的附加选项，采用 JSON 格式。</font></font><a href="https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/YoutubeDL.py#L183"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅此处的可用选项</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">它们大致对应于命令行选项，尽管有些选项在这里没有确切的等效项，例如</font></font><code>--recode-video</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必须通过 指定</font></font><code>postprocessors</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">另请注意，破折号被替换为下划线。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">YTDL_OPTIONS_FILE</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：将加载并用于</font></font><code>YTDL_OPTIONS</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面填充的 JSON 文件的路径。</font><font style="vertical-align: inherit;">请注意，如果同时指定了</font></font><code>YTDL_OPTIONS_FILE</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code>YTDL_OPTIONS</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则 中的选项</font></font><code>YTDL_OPTIONS</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">优先。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下</font></font><code>YTDL_OPTIONS</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌入英文字幕和章节标记的示例值（对于具有它们的视频），还更改下载视频的权限并将文件修改时间戳设置为下载日期：</font></font></p>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre>    <span class="pl-ent">environment</span>:
+      - <span class="pl-s"><span class="pl-pds">'</span>YTDL_OPTIONS={"writesubtitles":true,"subtitleslangs":["en","-live_chat"],"updatetime":false,"postprocessors":[{"key":"Exec","exec_cmd":"chmod 0664","when":"after_move"},{"key":"FFmpegEmbedSubtitle","already_have_subtitle":false},{"key":"FFmpegMetadata","add_chapters":true}]}<span class="pl-pds">'</span></span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    environment:
+      - 'YTDL_OPTIONS={&quot;writesubtitles&quot;:true,&quot;subtitleslangs&quot;:[&quot;en&quot;,&quot;-live_chat&quot;],&quot;updatetime&quot;:false,&quot;postprocessors&quot;:[{&quot;key&quot;:&quot;Exec&quot;,&quot;exec_cmd&quot;:&quot;chmod 0664&quot;,&quot;when&quot;:&quot;after_move&quot;},{&quot;key&quot;:&quot;FFmpegEmbedSubtitle&quot;,&quot;already_have_subtitle&quot;:false},{&quot;key&quot;:&quot;FFmpegMetadata&quot;,&quot;add_chapters&quot;:true}]}'" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是</font></font><code>OUTPUT_TEMPLATE</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合的示例值：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">播放列表名称和作者（如果存在）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">播放列表编号和计数（如果存在）（如果需要，则用零填充）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">视频作者、标题和发布日期采用 YYYY-MM-DD 格式，如果丢失，则</font><font style="vertical-align: inherit;">返回</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UNKNOWN_...</font></font></em><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">清理有效 UNIX 文件名的所有内容</font></font></li>
+</ul>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre>    <span class="pl-ent">environment</span>:
+      - <span class="pl-s"><span class="pl-pds">'</span>OUTPUT_TEMPLATE=%(playlist_title&amp;Playlist |)S%(playlist_title|)S%(playlist_uploader&amp; by |)S%(playlist_uploader|)S%(playlist_autonumber&amp; - |)S%(playlist_autonumber|)S%(playlist_count&amp; of |)S%(playlist_count|)S%(playlist_autonumber&amp; - |)S%(uploader,creator|UNKNOWN_AUTHOR)S - %(title|UNKNOWN_TITLE)S - %(release_date&gt;%Y-%m-%d,upload_date&gt;%Y-%m-%d|UNKNOWN_DATE)S.%(ext)s<span class="pl-pds">'</span></span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    environment:
+      - 'OUTPUT_TEMPLATE=%(playlist_title&amp;Playlist |)S%(playlist_title|)S%(playlist_uploader&amp; by |)S%(playlist_uploader|)S%(playlist_autonumber&amp; - |)S%(playlist_autonumber|)S%(playlist_count&amp; of |)S%(playlist_count|)S%(playlist_autonumber&amp; - |)S%(uploader,creator|UNKNOWN_AUTHOR)S - %(title|UNKNOWN_TITLE)S - %(release_date>%Y-%m-%d,upload_date>%Y-%m-%d|UNKNOWN_DATE)S.%(ext)s'" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用浏览器cookie</font></font></h2><a id="user-content-using-browser-cookies" class="anchor-element" aria-label="永久链接：使用浏览器 cookie" href="#using-browser-cookies"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您需要在 MeTube 中使用浏览器的 cookie，例如下载受限或私人视频：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将以下内容添加到 docker-compose.yml 中：</font></font></li>
+</ul>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" dir="auto"><pre>    <span class="pl-ent">volumes</span>:
+      - <span class="pl-s">/path/to/cookies:/cookies</span>
+    <span class="pl-ent">environment</span>:
+      - <span class="pl-s">YTDL_OPTIONS={"cookiefile":"/cookies/cookies.txt"}</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="    volumes:
       - /path/to/cookies:/cookies
     environment:
-      - YTDL_OPTIONS={"cookiefile":"/cookies/cookies.txt"}
-```
-
-* Install in your browser an extension to extract cookies:
-  * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/)
-  * [Chrome](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc)
-* Extract the cookies you need with the extension and rename the file `cookies.txt`
-* Drop the file in the folder you configured in the docker-compose.yml above
-* Restart the container
-
-## Browser extensions
-
-Browser extensions allow right-clicking videos and sending them directly to MeTube. Please note that if you're on an HTTPS page, your MeTube instance must be behind an HTTPS reverse proxy (see below) for the extensions to work.
-
-__Chrome:__ contributed by [Rpsl](https://github.com/rpsl). You can install it from [Google Chrome Webstore](https://chrome.google.com/webstore/detail/metube-downloader/fbmkmdnlhacefjljljlbhkodfmfkijdh) or use developer mode and install [from sources](https://github.com/Rpsl/metube-browser-extension).
-
-__Firefox:__ contributed by [nanocortex](https://github.com/nanocortex). You can install it from [Firefox Addons](https://addons.mozilla.org/en-US/firefox/addon/metube-downloader) or get sources from [here](https://github.com/nanocortex/metube-firefox-addon).
-
-## iOS Shortcut
-
-[rithask](https://github.com/rithask) has created an iOS shortcut to send the URL to MeTube from Safari. Initially, you'll need to enter the server address and port, but after that, it will be saved and you can just run the shortcut from the share menu in Safari. The address should include the protocol (http/https) and the port, if it's not the default 80/443. For example: `https://metube.example.com` or `http://192.168.1.1:8081`. The shortcut can be found [here](https://www.icloud.com/shortcuts/f1548df15b734418a77a709103bc1dd5).
-
-## Bookmarklet
-
-[kushfest](https://github.com/kushfest) has created a Chrome bookmarklet for sending the currently open webpage to MeTube. Please note that if you're on an HTTPS page, your MeTube instance must be behind an HTTPS reverse proxy (see below) for the bookmarklet to work.
-
-GitHub doesn't allow embedding JavaScript as a link, so the bookmarklet has to be created manually by copying the following code to a new bookmark you create on your bookmarks bar. Change the hostname in the URL below to point to your MeTube instance.
-
-```javascript
-javascript:!function(){xhr=new XMLHttpRequest();xhr.open("POST","https://metube.domain.com/add");xhr.send(JSON.stringify({"url":document.location.href,"quality":"best"}));xhr.onload=function(){if(xhr.status==200){alert("Sent to metube!")}else{alert("Send to metube failed. Check the javascript console for clues.")}}}();
-```
-
-[shoonya75](https://github.com/shoonya75) has contributed a Firefox version:
-
-```javascript
-javascript:(function(){xhr=new XMLHttpRequest();xhr.open("POST","https://metube.domain.com/add");xhr.send(JSON.stringify({"url":document.location.href,"quality":"best"}));xhr.onload=function(){if(xhr.status==200){alert("Sent to metube!")}else{alert("Send to metube failed. Check the javascript console for clues.")}}})();
-```
-
-The above bookmarklets use `alert()` as a success/failure notification. The following will show a toast message instead:
-
-Chrome:
-
-```javascript
-javascript:!function(){function notify(msg) {var sc = document.scrollingElement.scrollTop; var text = document.createElement('span');text.innerHTML=msg;var ts = text.style;ts.all = 'revert';ts.color = '#000';ts.fontFamily = 'Verdana, sans-serif';ts.fontSize = '15px';ts.backgroundColor = 'white';ts.padding = '15px';ts.border = '1px solid gainsboro';ts.boxShadow = '3px 3px 10px';ts.zIndex = '100';document.body.appendChild(text);ts.position = 'absolute'; ts.top = 50 + sc + 'px'; ts.left = (window.innerWidth / 2)-(text.offsetWidth / 2) + 'px'; setTimeout(function () { text.style.visibility = "hidden"; }, 1500);}xhr=new XMLHttpRequest();xhr.open("POST","https://metube.domain.com/add");xhr.send(JSON.stringify({"url":document.location.href,"quality":"best"}));xhr.onload=function() { if(xhr.status==200){notify("Sent to metube!")}else {notify("Send to metube failed. Check the javascript console for clues.")}}}();
-```
-
-Firefox:
-
-```javascript
-javascript:(function(){function notify(msg) {var sc = document.scrollingElement.scrollTop; var text = document.createElement('span');text.innerHTML=msg;var ts = text.style;ts.all = 'revert';ts.color = '#000';ts.fontFamily = 'Verdana, sans-serif';ts.fontSize = '15px';ts.backgroundColor = 'white';ts.padding = '15px';ts.border = '1px solid gainsboro';ts.boxShadow = '3px 3px 10px';ts.zIndex = '100';document.body.appendChild(text);ts.position = 'absolute'; ts.top = 50 + sc + 'px'; ts.left = (window.innerWidth / 2)-(text.offsetWidth / 2) + 'px'; setTimeout(function () { text.style.visibility = "hidden"; }, 1500);}xhr=new XMLHttpRequest();xhr.open("POST","https://metube.domain.com/add");xhr.send(JSON.stringify({"url":document.location.href,"quality":"best"}));xhr.onload=function() { if(xhr.status==200){notify("Sent to metube!")}else {notify("Send to metube failed. Check the javascript console for clues.")}}})();
-```
-
-## Running behind a reverse proxy
-
-It's advisable to run MeTube behind a reverse proxy, if authentication and/or HTTPS support are required.
-
-When running behind a reverse proxy which remaps the URL (i.e. serves MeTube under a subdirectory and not under root), don't forget to set the URL_PREFIX environment variable to the correct value.
-
-If you're using the [linuxserver/swag](https://docs.linuxserver.io/general/swag) image for your reverse proxying needs (which I can heartily recommend), it already includes ready snippets for proxying MeTube both in [subfolder](https://github.com/linuxserver/reverse-proxy-confs/blob/master/metube.subfolder.conf.sample) and [subdomain](https://github.com/linuxserver/reverse-proxy-confs/blob/master/metube.subdomain.conf.sample) modes under the `nginx/proxy-confs` directory in the configuration volume. It also includes Authelia which can be used for authentication.
-
-### NGINX
-
-```nginx
-location /metube/ {
+      - YTDL_OPTIONS={&quot;cookiefile&quot;:&quot;/cookies/cookies.txt&quot;}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在您的浏览器中安装扩展程序以提取 cookie：
+</font></font><ul dir="auto">
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">火狐浏览器</font></font></a></li>
+<li><a href="https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">铬合金</font></font></a></li>
+</ul>
+</li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提取您需要的 cookie 及其扩展名并重命名该文件</font></font><code>cookies.txt</code></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将文件拖放到您在上面 docker-compose.yml 中配置的文件夹中</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重启容器</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">浏览器扩展</font></font></h2><a id="user-content-browser-extensions" class="anchor-element" aria-label="永久链接：浏览器扩展" href="#browser-extensions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">浏览器扩展允许右键单击视频并将其直接发送到 MeTube。</font><font style="vertical-align: inherit;">请注意，如果您位于 HTTPS 页面上，您的 MeTube 实例必须位于 HTTPS 反向代理后面（见下文），扩展程序才能正常工作。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chrome：由</font></font></strong><font style="vertical-align: inherit;"></font><a href="https://github.com/rpsl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Rpsl</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font><font style="vertical-align: inherit;">。</font></font><a href="https://chrome.google.com/webstore/detail/metube-downloader/fbmkmdnlhacefjljljlbhkodfmfkijdh" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以从Google Chrome 网上应用店</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装它</font><font style="vertical-align: inherit;">，或使用开发人员模式并</font></font><a href="https://github.com/Rpsl/metube-browser-extension"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从源</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Firefox：由</font></font></strong><font style="vertical-align: inherit;"></font><a href="https://github.com/nanocortex"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nanocortex</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font><font style="vertical-align: inherit;">。</font></font><a href="https://addons.mozilla.org/en-US/firefox/addon/metube-downloader" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以从Firefox Addons</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装它</font><font style="vertical-align: inherit;">或从</font></font><a href="https://github.com/nanocortex/metube-firefox-addon"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这里</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获取源代码。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">iOS 快捷方式</font></font></h2><a id="user-content-ios-shortcut" class="anchor-element" aria-label="永久链接：iOS 快捷方式" href="#ios-shortcut"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://github.com/rithask"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">rithask</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建了一个 iOS 快捷方式，用于将 URL 从 Safari 发送到 MeTube。</font><font style="vertical-align: inherit;">最初，您需要输入服务器地址和端口，但之后它将被保存，您只需从 Safari 中的共享菜单运行快捷方式即可。</font><font style="vertical-align: inherit;">如果不是默认的 80/443，则该地址应包含协议 (http/https) 和端口。</font><font style="vertical-align: inherit;">例如：</font></font><code>https://metube.example.com</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code>http://192.168.1.1:8081</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><a href="https://www.icloud.com/shortcuts/f1548df15b734418a77a709103bc1dd5" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以在此处</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">找到快捷方式</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">小书签</font></font></h2><a id="user-content-bookmarklet" class="anchor-element" aria-label="永久链接：书签" href="#bookmarklet"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://github.com/kushfest"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">kushfest</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建了一个 Chrome 书签，用于将当前打开的网页发送到 MeTube。</font><font style="vertical-align: inherit;">请注意，如果您位于 HTTPS 页面，则您的 MeTube 实例必须位于 HTTPS 反向代理后面（见下文），小书签才能正常工作。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub 不允许将 JavaScript 作为链接嵌入，因此必须通过将以下代码复制到您在书签栏上创建的新书签来手动创建书签。</font><font style="vertical-align: inherit;">更改以下 URL 中的主机名以指向您的 MeTube 实例。</font></font></p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto"><pre>javascript:<span class="pl-c1">!</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-s1">xhr</span><span class="pl-c1">=</span><span class="pl-k">new</span> <span class="pl-v">XMLHttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">open</span><span class="pl-kos">(</span><span class="pl-s">"POST"</span><span class="pl-kos">,</span><span class="pl-s">"https://metube.domain.com/add"</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-s">"url"</span>:<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">location</span><span class="pl-kos">.</span><span class="pl-c1">href</span><span class="pl-kos">,</span><span class="pl-s">"quality"</span>:<span class="pl-s">"best"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">onload</span><span class="pl-c1">=</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-c1">status</span><span class="pl-c1">==</span><span class="pl-c1">200</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-en">alert</span><span class="pl-kos">(</span><span class="pl-s">"Sent to metube!"</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-k">else</span><span class="pl-kos">{</span><span class="pl-en">alert</span><span class="pl-kos">(</span><span class="pl-s">"Send to metube failed. Check the javascript console for clues."</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="javascript:!function(){xhr=new XMLHttpRequest();xhr.open(&quot;POST&quot;,&quot;https://metube.domain.com/add&quot;);xhr.send(JSON.stringify({&quot;url&quot;:document.location.href,&quot;quality&quot;:&quot;best&quot;}));xhr.onload=function(){if(xhr.status==200){alert(&quot;Sent to metube!&quot;)}else{alert(&quot;Send to metube failed. Check the javascript console for clues.&quot;)}}}();" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><a href="https://github.com/shoonya75"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">shoonya75</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献了一个 Firefox 版本：</font></font></p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto"><pre>javascript:<span class="pl-kos">(</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-s1">xhr</span><span class="pl-c1">=</span><span class="pl-k">new</span> <span class="pl-v">XMLHttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">open</span><span class="pl-kos">(</span><span class="pl-s">"POST"</span><span class="pl-kos">,</span><span class="pl-s">"https://metube.domain.com/add"</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-s">"url"</span>:<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">location</span><span class="pl-kos">.</span><span class="pl-c1">href</span><span class="pl-kos">,</span><span class="pl-s">"quality"</span>:<span class="pl-s">"best"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">onload</span><span class="pl-c1">=</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-c1">status</span><span class="pl-c1">==</span><span class="pl-c1">200</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-en">alert</span><span class="pl-kos">(</span><span class="pl-s">"Sent to metube!"</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-k">else</span><span class="pl-kos">{</span><span class="pl-en">alert</span><span class="pl-kos">(</span><span class="pl-s">"Send to metube failed. Check the javascript console for clues."</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="javascript:(function(){xhr=new XMLHttpRequest();xhr.open(&quot;POST&quot;,&quot;https://metube.domain.com/add&quot;);xhr.send(JSON.stringify({&quot;url&quot;:document.location.href,&quot;quality&quot;:&quot;best&quot;}));xhr.onload=function(){if(xhr.status==200){alert(&quot;Sent to metube!&quot;)}else{alert(&quot;Send to metube failed. Check the javascript console for clues.&quot;)}}})();" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上述小书签用作</font></font><code>alert()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">成功/失败通知。</font><font style="vertical-align: inherit;">下面将显示一条 toast 消息：</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">铬合金：</font></font></p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto"><pre>javascript:<span class="pl-c1">!</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-k">function</span> <span class="pl-en">notify</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span> <span class="pl-kos">{</span><span class="pl-k">var</span> <span class="pl-s1">sc</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">scrollingElement</span><span class="pl-kos">.</span><span class="pl-c1">scrollTop</span><span class="pl-kos">;</span> <span class="pl-k">var</span> <span class="pl-s1">text</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">createElement</span><span class="pl-kos">(</span><span class="pl-s">'span'</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">innerHTML</span><span class="pl-c1">=</span><span class="pl-s1">msg</span><span class="pl-kos">;</span><span class="pl-k">var</span> <span class="pl-s1">ts</span> <span class="pl-c1">=</span> <span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">all</span> <span class="pl-c1">=</span> <span class="pl-s">'revert'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">color</span> <span class="pl-c1">=</span> <span class="pl-s">'#000'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">fontFamily</span> <span class="pl-c1">=</span> <span class="pl-s">'Verdana, sans-serif'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">fontSize</span> <span class="pl-c1">=</span> <span class="pl-s">'15px'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">backgroundColor</span> <span class="pl-c1">=</span> <span class="pl-s">'white'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">padding</span> <span class="pl-c1">=</span> <span class="pl-s">'15px'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">border</span> <span class="pl-c1">=</span> <span class="pl-s">'1px solid gainsboro'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">boxShadow</span> <span class="pl-c1">=</span> <span class="pl-s">'3px 3px 10px'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">zIndex</span> <span class="pl-c1">=</span> <span class="pl-s">'100'</span><span class="pl-kos">;</span><span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">appendChild</span><span class="pl-kos">(</span><span class="pl-s1">text</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">position</span> <span class="pl-c1">=</span> <span class="pl-s">'absolute'</span><span class="pl-kos">;</span> <span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">top</span> <span class="pl-c1">=</span> <span class="pl-c1">50</span> <span class="pl-c1">+</span> <span class="pl-s1">sc</span> <span class="pl-c1">+</span> <span class="pl-s">'px'</span><span class="pl-kos">;</span> <span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">left</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">innerWidth</span> <span class="pl-c1">/</span> <span class="pl-c1">2</span><span class="pl-kos">)</span><span class="pl-c1">-</span><span class="pl-kos">(</span><span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">offsetWidth</span> <span class="pl-c1">/</span> <span class="pl-c1">2</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-s">'px'</span><span class="pl-kos">;</span> <span class="pl-en">setTimeout</span><span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span> <span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">visibility</span> <span class="pl-c1">=</span> <span class="pl-s">"hidden"</span><span class="pl-kos">;</span> <span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-c1">1500</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-kos">}</span><span class="pl-s1">xhr</span><span class="pl-c1">=</span><span class="pl-k">new</span> <span class="pl-v">XMLHttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">open</span><span class="pl-kos">(</span><span class="pl-s">"POST"</span><span class="pl-kos">,</span><span class="pl-s">"https://metube.domain.com/add"</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-s">"url"</span>:<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">location</span><span class="pl-kos">.</span><span class="pl-c1">href</span><span class="pl-kos">,</span><span class="pl-s">"quality"</span>:<span class="pl-s">"best"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">onload</span><span class="pl-c1">=</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span> <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-c1">status</span><span class="pl-c1">==</span><span class="pl-c1">200</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-en">notify</span><span class="pl-kos">(</span><span class="pl-s">"Sent to metube!"</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-k">else</span> <span class="pl-kos">{</span><span class="pl-en">notify</span><span class="pl-kos">(</span><span class="pl-s">"Send to metube failed. Check the javascript console for clues."</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="javascript:!function(){function notify(msg) {var sc = document.scrollingElement.scrollTop; var text = document.createElement('span');text.innerHTML=msg;var ts = text.style;ts.all = 'revert';ts.color = '#000';ts.fontFamily = 'Verdana, sans-serif';ts.fontSize = '15px';ts.backgroundColor = 'white';ts.padding = '15px';ts.border = '1px solid gainsboro';ts.boxShadow = '3px 3px 10px';ts.zIndex = '100';document.body.appendChild(text);ts.position = 'absolute'; ts.top = 50 + sc + 'px'; ts.left = (window.innerWidth / 2)-(text.offsetWidth / 2) + 'px'; setTimeout(function () { text.style.visibility = &quot;hidden&quot;; }, 1500);}xhr=new XMLHttpRequest();xhr.open(&quot;POST&quot;,&quot;https://metube.domain.com/add&quot;);xhr.send(JSON.stringify({&quot;url&quot;:document.location.href,&quot;quality&quot;:&quot;best&quot;}));xhr.onload=function() { if(xhr.status==200){notify(&quot;Sent to metube!&quot;)}else {notify(&quot;Send to metube failed. Check the javascript console for clues.&quot;)}}}();" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">火狐浏览器：</font></font></p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto"><pre>javascript:<span class="pl-kos">(</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-k">function</span> <span class="pl-en">notify</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span> <span class="pl-kos">{</span><span class="pl-k">var</span> <span class="pl-s1">sc</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">scrollingElement</span><span class="pl-kos">.</span><span class="pl-c1">scrollTop</span><span class="pl-kos">;</span> <span class="pl-k">var</span> <span class="pl-s1">text</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">createElement</span><span class="pl-kos">(</span><span class="pl-s">'span'</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">innerHTML</span><span class="pl-c1">=</span><span class="pl-s1">msg</span><span class="pl-kos">;</span><span class="pl-k">var</span> <span class="pl-s1">ts</span> <span class="pl-c1">=</span> <span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">all</span> <span class="pl-c1">=</span> <span class="pl-s">'revert'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">color</span> <span class="pl-c1">=</span> <span class="pl-s">'#000'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">fontFamily</span> <span class="pl-c1">=</span> <span class="pl-s">'Verdana, sans-serif'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">fontSize</span> <span class="pl-c1">=</span> <span class="pl-s">'15px'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">backgroundColor</span> <span class="pl-c1">=</span> <span class="pl-s">'white'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">padding</span> <span class="pl-c1">=</span> <span class="pl-s">'15px'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">border</span> <span class="pl-c1">=</span> <span class="pl-s">'1px solid gainsboro'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">boxShadow</span> <span class="pl-c1">=</span> <span class="pl-s">'3px 3px 10px'</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">zIndex</span> <span class="pl-c1">=</span> <span class="pl-s">'100'</span><span class="pl-kos">;</span><span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">appendChild</span><span class="pl-kos">(</span><span class="pl-s1">text</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">position</span> <span class="pl-c1">=</span> <span class="pl-s">'absolute'</span><span class="pl-kos">;</span> <span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">top</span> <span class="pl-c1">=</span> <span class="pl-c1">50</span> <span class="pl-c1">+</span> <span class="pl-s1">sc</span> <span class="pl-c1">+</span> <span class="pl-s">'px'</span><span class="pl-kos">;</span> <span class="pl-s1">ts</span><span class="pl-kos">.</span><span class="pl-c1">left</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">innerWidth</span> <span class="pl-c1">/</span> <span class="pl-c1">2</span><span class="pl-kos">)</span><span class="pl-c1">-</span><span class="pl-kos">(</span><span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">offsetWidth</span> <span class="pl-c1">/</span> <span class="pl-c1">2</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-s">'px'</span><span class="pl-kos">;</span> <span class="pl-en">setTimeout</span><span class="pl-kos">(</span><span class="pl-k">function</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span> <span class="pl-s1">text</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">visibility</span> <span class="pl-c1">=</span> <span class="pl-s">"hidden"</span><span class="pl-kos">;</span> <span class="pl-kos">}</span><span class="pl-kos">,</span> <span class="pl-c1">1500</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-kos">}</span><span class="pl-s1">xhr</span><span class="pl-c1">=</span><span class="pl-k">new</span> <span class="pl-v">XMLHttpRequest</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">open</span><span class="pl-kos">(</span><span class="pl-s">"POST"</span><span class="pl-kos">,</span><span class="pl-s">"https://metube.domain.com/add"</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-s">"url"</span>:<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">location</span><span class="pl-kos">.</span><span class="pl-c1">href</span><span class="pl-kos">,</span><span class="pl-s">"quality"</span>:<span class="pl-s">"best"</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-en">onload</span><span class="pl-c1">=</span><span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span> <span class="pl-k">if</span><span class="pl-kos">(</span><span class="pl-s1">xhr</span><span class="pl-kos">.</span><span class="pl-c1">status</span><span class="pl-c1">==</span><span class="pl-c1">200</span><span class="pl-kos">)</span><span class="pl-kos">{</span><span class="pl-en">notify</span><span class="pl-kos">(</span><span class="pl-s">"Sent to metube!"</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-k">else</span> <span class="pl-kos">{</span><span class="pl-en">notify</span><span class="pl-kos">(</span><span class="pl-s">"Send to metube failed. Check the javascript console for clues."</span><span class="pl-kos">)</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="javascript:(function(){function notify(msg) {var sc = document.scrollingElement.scrollTop; var text = document.createElement('span');text.innerHTML=msg;var ts = text.style;ts.all = 'revert';ts.color = '#000';ts.fontFamily = 'Verdana, sans-serif';ts.fontSize = '15px';ts.backgroundColor = 'white';ts.padding = '15px';ts.border = '1px solid gainsboro';ts.boxShadow = '3px 3px 10px';ts.zIndex = '100';document.body.appendChild(text);ts.position = 'absolute'; ts.top = 50 + sc + 'px'; ts.left = (window.innerWidth / 2)-(text.offsetWidth / 2) + 'px'; setTimeout(function () { text.style.visibility = &quot;hidden&quot;; }, 1500);}xhr=new XMLHttpRequest();xhr.open(&quot;POST&quot;,&quot;https://metube.domain.com/add&quot;);xhr.send(JSON.stringify({&quot;url&quot;:document.location.href,&quot;quality&quot;:&quot;best&quot;}));xhr.onload=function() { if(xhr.status==200){notify(&quot;Sent to metube!&quot;)}else {notify(&quot;Send to metube failed. Check the javascript console for clues.&quot;)}}})();" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在反向代理后面运行</font></font></h2><a id="user-content-running-behind-a-reverse-proxy" class="anchor-element" aria-label="永久链接：在反向代理后面运行" href="#running-behind-a-reverse-proxy"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果需要身份验证和/或 HTTPS 支持，建议在反向代理后面运行 MeTube。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当在重新映射 URL 的反向代理后面运行时（即在子目录下而不是根目录下为 MeTube 提供服务），请不要忘记将 URL_PREFIX 环境变量设置为正确的值。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您使用</font></font><a href="https://docs.linuxserver.io/general/swag" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">linuxserver/swag</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">镜像来满足反向代理需求（我强烈推荐），它已经包含了用于在配置卷目录下的</font></font><a href="https://github.com/linuxserver/reverse-proxy-confs/blob/master/metube.subfolder.conf.sample"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">子文件夹</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://github.com/linuxserver/reverse-proxy-confs/blob/master/metube.subdomain.conf.sample"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">子域</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模式下代理 MeTube 的现成代码片段</font></font><code>nginx/proxy-confs</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">它还包括可用于身份验证的 Authelia。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NGINX</font></font></h3><a id="user-content-nginx" class="anchor-element" aria-label="永久链接：NGINX" href="#nginx"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="highlight highlight-source-nginx notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-k">location</span> <span class="pl-en">/metube/ </span>{
+        <span class="pl-k">proxy_pass</span> http://metube:8081;
+        <span class="pl-k">proxy_http_version</span> <span class="pl-c1">1.1</span>;
+        <span class="pl-k">proxy_set_header</span> Upgrade <span class="pl-smi">$http_upgrade</span>;
+        <span class="pl-k">proxy_set_header</span> Connection <span class="pl-s">"upgrade"</span>;
+        <span class="pl-k">proxy_set_header</span> Host <span class="pl-smi">$host</span>;
+}</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="location /metube/ {
         proxy_pass http://metube:8081;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
+        proxy_set_header Connection &quot;upgrade&quot;;
         proxy_set_header Host $host;
-}
-```
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意：额外的</font></font><code>proxy_set_header</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指令是为了让 WebSocket 工作。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿帕奇</font></font></h3><a id="user-content-apache" class="anchor-element" aria-label="永久链接：阿帕奇" href="#apache"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由</font></font><a href="https://github.com/PIE-yt"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PIE-yt</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献。</font><font style="vertical-align: inherit;">来源</font></font><a href="https://gist.github.com/PIE-yt/29e7116588379032427f5bd446b2cac4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在这里</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="highlight highlight-source-apache-config notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c"><span class="pl-c">#</span> For putting in your Apache sites site.conf</span>
+<span class="pl-c"><span class="pl-c">#</span> Serves MeTube under a /metube/ subdir (http://yourdomain.com/metube/)</span>
+&lt;<span class="pl-c1">Location</span> /metube/&gt;
+    <span class="pl-c1">ProxyPass</span> http://localhost:8081/ retry=0 timeout=30
+    <span class="pl-c1">ProxyPassReverse</span> http://localhost:8081/
+&lt;/<span class="pl-ent">Location</span>&gt;
 
-Note: the extra `proxy_set_header` directives are there to make WebSocket work.
-
-### Apache
-
-Contributed by [PIE-yt](https://github.com/PIE-yt). Source [here](https://gist.github.com/PIE-yt/29e7116588379032427f5bd446b2cac4).
-
-```apache
-# For putting in your Apache sites site.conf
+&lt;<span class="pl-ent">Location</span> /metube/socket.io&gt;
+    <span class="pl-c1">RewriteEngine</span> On
+    <span class="pl-c1">RewriteCond</span> <span class="pl-c1">%{QUERY_STRING}</span> <span class="pl-s">transport=websocket</span>    <span class="pl-sr">[NC]</span>
+    <span class="pl-c1">RewriteRule</span> <span class="pl-sr">/(.*)</span> <span class="pl-s">ws://localhost:8081/socket.io/$1</span> <span class="pl-sr">[P,L]</span>
+    <span class="pl-c1">ProxyPass</span> http://localhost:8081/socket.io retry=0 timeout=30
+    <span class="pl-c1">ProxyPassReverse</span> http://localhost:8081/socket.io
+&lt;/<span class="pl-ent">Location</span>&gt;</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="# For putting in your Apache sites site.conf
 # Serves MeTube under a /metube/ subdir (http://yourdomain.com/metube/)
 <Location /metube/>
     ProxyPass http://localhost:8081/ retry=0 timeout=30
@@ -172,49 +267,71 @@ Contributed by [PIE-yt](https://github.com/PIE-yt). Source [here](https://gist.g
     RewriteRule /(.*) ws://localhost:8081/socket.io/$1 [P,L]
     ProxyPass http://localhost:8081/socket.io retry=0 timeout=30
     ProxyPassReverse http://localhost:8081/socket.io
-</Location>
-```
-
-### Caddy
-
-The following example Caddyfile gets a reverse proxy going behind [caddy](https://caddyserver.com).
-
-```caddyfile
-example.com {
+</Location>" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">球童</font></font></h3><a id="user-content-caddy" class="anchor-element" aria-label="永久链接： 球童" href="#caddy"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://caddyserver.com" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下示例 Caddyfile 在caddy</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">后面获取反向代理</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre lang="caddyfile" class="notranslate"><code>example.com {
   route /metube/* {
     uri strip_prefix metube
     reverse_proxy metube:8081
   }
 }
-```
-
-## Updating yt-dlp
-
-The engine which powers the actual video downloads in MeTube is [yt-dlp](https://github.com/yt-dlp/yt-dlp). Since video sites regularly change their layouts, frequent updates of yt-dlp are required to keep up.
-
-There's an automatic nightly build of MeTube which looks for a new version of yt-dlp, and if one exists, the build pulls it and publishes an updated docker image. Therefore, in order to keep up with the changes, it's recommended that you update your MeTube container regularly with the latest image.
-
-I recommend installing and setting up [watchtower](https://github.com/containrrr/watchtower) for this purpose.
-
-## Troubleshooting and submitting issues
-
-Before asking a question or submitting an issue for MeTube, please remember that MeTube is only a UI for [yt-dlp](https://github.com/yt-dlp/yt-dlp). Any issues you might be experiencing with authentication to video websites, postprocessing, permissions, other `YTDL_OPTIONS` configurations which seem not to work, or anything else that concerns the workings of the underlying yt-dlp library, need not be opened on the MeTube project. In order to debug and troubleshoot them, it's advised to try using the yt-dlp binary directly first, bypassing the UI, and once that is working, importing the options that worked for you into `YTDL_OPTIONS`.
-
-In order to test with the yt-dlp command directly, you can either download it and run it locally, or for a better simulation of its actual conditions, you can run it within the MeTube container itself. Assuming your MeTube container is called `metube`, run the following on your Docker host to get a shell inside the container:
-
-```bash
-docker exec -ti metube sh
-cd /downloads
-```
-
-Once there, you can use the yt-dlp command freely.
-
-## Building and running locally
-
-Make sure you have node.js and Python 3.11 installed.
-
-```bash
-cd metube/ui
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="example.com {
+  route /metube/* {
+    uri strip_prefix metube
+    reverse_proxy metube:8081
+  }
+}" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更新 yt-dlp</font></font></h2><a id="user-content-updating-yt-dlp" class="anchor-element" aria-label="永久链接：更新 yt-dlp" href="#updating-yt-dlp"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MeTube 中实际视频下载的引擎是</font></font><a href="https://github.com/yt-dlp/yt-dlp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">yt-dlp</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">由于视频网站会定期更改其布局，因此 yt-dlp 需要频繁更新才能跟上。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MeTube 有一个自动夜间构建，它会查找新版本的 yt-dlp，如果存在，构建会拉取它并发布更新的 docker 镜像。</font><font style="vertical-align: inherit;">因此，为了跟上变化，建议您定期使用最新的镜像更新 MeTube 容器。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我建议为此目的</font><font style="vertical-align: inherit;">安装和设置了望</font></font><a href="https://github.com/containrrr/watchtower"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">塔。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">疑难解答和提交问题</font></font></h2><a id="user-content-troubleshooting-and-submitting-issues" class="anchor-element" aria-label="永久链接：疑难解答和提交问题" href="#troubleshooting-and-submitting-issues"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在向 MeTube 提问或提交问题之前，请记住 MeTube 只是</font></font><a href="https://github.com/yt-dlp/yt-dlp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">yt-dlp</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的 UI 。</font><font style="vertical-align: inherit;">您可能在视频网站身份验证、后处理、权限、其他似乎不起作用的配置方面遇到的任何问题</font></font><code>YTDL_OPTIONS</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，或者涉及底层 yt-dlp 库工作的任何其他问题，都不需要在 MeTube 项目上打开。</font><font style="vertical-align: inherit;">为了调试和排除故障，建议首先尝试直接使用 yt-dlp 二进制文件，绕过 UI，一旦工作正常，将适合您的选项导入到</font></font><code>YTDL_OPTIONS</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为了直接使用 yt-dlp 命令进行测试，您可以下载它并在本地运行它，或者为了更好地模拟其实际情况，您可以在 MeTube 容器本身中运行它。</font><font style="vertical-align: inherit;">假设您的 MeTube 容器名为</font></font><code>metube</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，请在 Docker 主机上运行以下命令以在容器内获取 shell：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>docker <span class="pl-c1">exec</span> -ti metube sh
+<span class="pl-c1">cd</span> /downloads</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="docker exec -ti metube sh
+cd /downloads" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">到达那里后，您可以自由使用 yt-dlp 命令。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">本地构建和运行</font></font></h2><a id="user-content-building-and-running-locally" class="anchor-element" aria-label="永久链接：本地构建和运行" href="#building-and-running-locally"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保已安装 Node.js 和 Python 3.11。</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c1">cd</span> metube/ui
+<span class="pl-c"><span class="pl-c">#</span> install Angular and build the UI</span>
+npm install
+node_modules/.bin/ng build
+<span class="pl-c"><span class="pl-c">#</span> install python dependencies</span>
+<span class="pl-c1">cd</span> ..
+pip3 install pipenv
+pipenv install
+<span class="pl-c"><span class="pl-c">#</span> run</span>
+pipenv run python3 app/main.py</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd metube/ui
 # install Angular and build the UI
 npm install
 node_modules/.bin/ng build
@@ -223,16 +340,29 @@ cd ..
 pip3 install pipenv
 pipenv install
 # run
-pipenv run python3 app/main.py
-```
-
-A Docker image can be built locally (it will build the UI too):
-
-```bash
-docker build -t metube .
-```
-
-## Development notes
-
-* The above works on Windows and macOS as well as Linux.
-* If you're running the server in VSCode, your downloads will go to your user's Downloads folder (this is configured via the environment in .vscode/launch.json).
+pipenv run python3 app/main.py" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以在本地构建 Docker 镜像（它也会构建 UI）：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>docker build -t metube <span class="pl-c1">.</span></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="docker build -t metube ." tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发笔记</font></font></h2><a id="user-content-development-notes" class="anchor-element" aria-label="永久链接：开发笔记" href="#development-notes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以上适用于 Windows 和 macOS 以及 Linux。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您在 VSCode 中运行服务器，您的下载将转到用户的 Downloads 文件夹（这是通过 .vscode/launch.json 中的环境配置的）。</font></font></li>
+</ul>
+</article></div>
